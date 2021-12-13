@@ -30,10 +30,8 @@ namespace T2008M_NetCoreApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // them ket noi db
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddScoped<IStudentsRepository, StudentsRepository>();
             services.AddDbContextPool<Models.DatabaseContext>(options =>
